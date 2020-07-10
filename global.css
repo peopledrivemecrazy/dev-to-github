@@ -74,3 +74,15 @@ ul {
 .py-2{
 	padding:1em 0;
 }
+main {
+	margin-top: 5em;
+	min-height: calc(80vh - 40px);
+	padding:  0 calc(5em - 2px);
+}
+
+footer {
+	padding: 2em 0
+}
+.text-center {
+	text-align: center
+}

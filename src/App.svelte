@@ -67,7 +67,7 @@
 <main>
 
 	<form>
-
+		<label for="username"></label>
 		<input type="text" bind:value={username} id="username" placeholder="Your dev.to username" required>
 
 		<button on:click={handleClick} type="submit">Fetch Data</button>

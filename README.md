@@ -8,4 +8,4 @@ Helps you with listing your dev.to articles to github. Fetches your latest 5 art
 
 
 #My profile preview
-<img src="https://github.anoram.com/public/preview.png">
+<img src="https://github.anoram.com/preview.png">

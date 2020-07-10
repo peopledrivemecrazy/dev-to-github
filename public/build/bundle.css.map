@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "..\\..\\App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\n\timport dayjs from 'dayjs'\n\tlet username = \"shriji\";\n\tlet articles;\n\tlet list\n\tasync function fetchData(x) {\n\t\tconst res = await fetch(`https://dev.to/api/articles?username=${x}&per_page=5`);\n\t\tarticles = await res.json();\n\n\t\tif (res.ok) {\n\t\t\tconsole.log(articles)\n\t\t\tlist = () => {\n\t\t\t\tlet articleList = '';\n\t\t\t\tarticles.forEach(element => {\n\t\t\t\t\tlet date = dayjs(element.published_timestamp).format(\"MMM DD YYYY\")\n\t\t\t\t\tarticleList += `* ${date} [${element.title}](${element.url}) \\n`\n\t\t\t\t\tconsole.log(articleList)\n\t\t\t\t});\n\t\t\t\treturn articleList\n\t\t\t};\n\t\t\treturn list;\n\t\t} else {\n\t\t\tthrow new Error(articles);\n\t\t}\n\t}\n\tlet data;\n\tasync function fetchProfile(x) {\n\t\tconst res = await fetch(`https://dev.to/api/users/by_username?url=${x}`);\n\t\tdata = await res.json();\n\n\t\tif (res.ok) {\n\t\t\tconsole.log(data)\n\t\t\treturn data;\n\t\t} else {\n\t\t\tthrow new Error(data);\n\t\t}\n\t}\n\n\tfunction handleClick() {\n\t\tconsole.log(username)\n\t\tfetchProfile(username)\n\t\tfetchData(username)\n\t}\n</script>\n<style>\n\ttextarea {\n\t\twidth: 100%;\n\t\tmin-height: 600px\n\t}\n\n\tcode {\n\t\tcolor: crimson\n\t}\n</style>\n\n<input type=\"text\" bind:value={username}>\n<button on:click={handleClick}>Fetch Data</button>\n\n{#if data} \n<p class=\"py-2\">Copy this to your github profile's <code>README.md</code></p>\n<textarea name=\"md\" id=\"mdData\" cols=\"30\"># {data.name}\n{data.summary}\n<hr>\n\n### 📝 Latest articles from [dev.to](https://dev.to/shriji) \t\n{list()}\n\n</textarea>\n{/if}"
+  ],
+  "names": [],
+  "mappings": "AA6CC,QAAQ,eAAC,CAAC,AACT,KAAK,CAAE,IAAI,CACX,UAAU,CAAE,KAAK;CAClB,CAAC,AAED,IAAI,eAAC,CAAC,AACL,KAAK,CAAE,OAAO;CACf,CAAC"
+}

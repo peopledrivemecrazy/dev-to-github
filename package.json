@@ -16,6 +16,8 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "@analytics/google-analytics": "^0.4.0",
+    "analytics": "^0.5.2",
     "dayjs": "^1.8.29",
     "sirv-cli": "^0.4.4"
   }

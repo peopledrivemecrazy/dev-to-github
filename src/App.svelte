@@ -1,5 +1,19 @@
 <script>
 	import dayjs from 'dayjs'
+	import Analytics from 'analytics'
+	import googleAnalytics from '@analytics/google-analytics'
+
+
+	const analytics = Analytics({
+		app: 'github.anoram.com',
+		plugins: [
+			googleAnalytics({
+				trackingId: 'UA-172454648-1'
+			})
+		]
+	})
+
+	analytics.page()
 	let username = "";
 	let articles = "";
 	let list = ""
@@ -30,7 +44,7 @@
 
 		if (res.ok) {
 			return data ? data : 'Something wrong!';
-		} 
+		}
 		// else {
 		// 	throw new Error(data);
 		// }
@@ -42,6 +56,7 @@
 		input.checkValidity();
 		input.reportValidity();
 		if (input.checkValidity()) {
+			analytics.track('buttonClicked')
 			fetchProfile(username.toLowerCase())
 			fetchData(username.toLowerCase())
 		}

@@ -42,8 +42,8 @@
 		input.checkValidity();
 		input.reportValidity();
 		if (input.checkValidity()) {
-			fetchProfile(username)
-			fetchData(username)
+			fetchProfile(username.toLowerCase())
+			fetchData(username.toLowerCase())
 		}
 
 	}

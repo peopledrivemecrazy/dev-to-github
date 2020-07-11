@@ -32,10 +32,11 @@
 			};
 			return list;
 		}
-		//  else {
-		// 	throw new Error(articles);
-		// 	console.log(res)
-		// }
+		 else {
+			 analytics.track('Logged Errors');
+			throw new Error(articles);
+			// console.log(res)
+		}
 	}
 	let data;
 	async function fetchProfile(x) {
@@ -45,9 +46,10 @@
 		if (res.ok) {
 			return data ? data : 'Something wrong!';
 		}
-		// else {
-		// 	throw new Error(data);
-		// }
+		else {
+			analytics.track('Logged Errors');
+			throw new Error(data);
+		}
 	}
 
 	function handleClick(e) {
@@ -56,7 +58,7 @@
 		input.checkValidity();
 		input.reportValidity();
 		if (input.checkValidity()) {
-			analytics.track('buttonClicked')
+			analytics.track('Generate MD')
 			fetchProfile(username.toLowerCase())
 			fetchData(username.toLowerCase())
 		}
@@ -67,6 +69,7 @@
 		var copyText = document.querySelector("#mdData");
 		copyText.select();
 		document.execCommand("copy");
+		analytics.track('Copy MD')
 	}
 </script>
 <style>

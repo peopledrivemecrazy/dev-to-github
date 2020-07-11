@@ -45,7 +45,7 @@
 		data = await res.json();
 
 		if (res.ok) {
-			taData = `# ${data.name}\n${data.summary}\n<hr>\n### 📝 Latest articles from [dev.to](https://dev.to/${data.username})\n\n`
+			taData = `# ${data.name}\n${data.summary}\n<hr>\n\n### 📝 Latest articles from [dev.to](https://dev.to/${data.username})\n\n`
 			return data ? data : 'Something wrong!';
 		}
 		else {

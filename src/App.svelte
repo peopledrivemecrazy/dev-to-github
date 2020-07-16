@@ -44,7 +44,7 @@
 			analytics.track('Fetched data')
 			if (github) {
 				stats =
-					`\n\n<p align="center">\n\n<img src="https://visitor-badge.glitch.me/badge?page_id=${github}.${github}" />\n<img src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=followers&query=followers&url=https%3A%2F%2Fapi.github.com%2Fusers%2F${github}" />\n\n</p>`
+					`\n\n<p align="center">\n\n<img src="https://img.shields.io/badge/dynamic/json?color=brightgreen&label=followers&query=followers&url=https%3A%2F%2Fapi.github.com%2Fusers%2F${github}" />\n\n</p>`
 			}
 			data = true
 		})
